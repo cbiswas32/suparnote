@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-slate-50 dark:bg-[#0f1117] text-slate-900 dark:text-slate-100 font-sans transition-colors duration-200;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-300 dark:bg-slate-700 rounded-full; }
+}
+
+@layer components {
+  .note-section {
+    @apply relative rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/60 p-4 transition-all duration-150;
+  }
+  .note-section:hover {
+    @apply border-slate-300 dark:border-slate-600;
+  }
+  .section-drag-handle {
+    @apply opacity-0 group-hover:opacity-100 transition-opacity cursor-grab active:cursor-grabbing;
+  }
+  .highlight-yellow { @apply bg-yellow-200 dark:bg-yellow-800/50 rounded px-0.5; }
+  .highlight-green  { @apply bg-green-200 dark:bg-green-800/50 rounded px-0.5; }
+  .highlight-blue   { @apply bg-blue-200 dark:bg-blue-800/50 rounded px-0.5; }
+  .highlight-pink   { @apply bg-pink-200 dark:bg-pink-800/50 rounded px-0.5; }
+}
