@@ -116,7 +116,7 @@ export function NoteEditor({ note, onBack }) {
             <Layers size={14} />
             <span className="hidden sm:inline">Arrange</span>
           </Button>
-          <Button size="sm" onClick={() => handleSave()} loading={saving}>
+          <Button size="sm" variant="outline" onClick={() => handleSave()} loading={saving}>
             <Save size={14} />
             <span className="hidden sm:inline">{saved ? 'Saved' : 'Save'}</span>
           </Button>

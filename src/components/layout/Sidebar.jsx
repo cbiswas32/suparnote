@@ -9,6 +9,7 @@ import { Modal } from '../ui/Modal';
 import { Input } from '../ui/Input';
 import { Button } from '../ui/Button';
 import clsx from 'clsx';
+import SUPAR_NOTE_ICON from '../../assets/suparnote.ico'
 
 export function Sidebar({ isOpen, onClose }) {
   const { theme, toggleTheme } = useThemeStore();
@@ -71,7 +72,7 @@ export function Sidebar({ isOpen, onClose }) {
         <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center">
-              <FileText size={16} className="text-white" />
+              <img src={SUPAR_NOTE_ICON}></img>
             </div>
             <span className="font-display font-700 text-lg tracking-tight">SuparNote</span>
           </div>

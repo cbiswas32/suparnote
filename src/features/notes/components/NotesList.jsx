@@ -63,7 +63,7 @@ export function NotesList() {
           </h1>
           <p className="text-xs text-slate-400 mt-0.5">{notes.length} note{notes.length !== 1 ? 's' : ''}</p>
         </div>
-        <Button onClick={() => setShowCreate(true)} size="sm">
+        <Button variant="outline" onClick={() => setShowCreate(true)} size="sm">
           <Plus size={15} /> New Note
         </Button>
       </div>

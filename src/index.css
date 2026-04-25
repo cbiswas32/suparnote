@@ -1,30 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    @apply bg-slate-50 dark:bg-[#0f1117] text-slate-900 dark:text-slate-100 font-sans transition-colors duration-200;
-  }
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { @apply bg-transparent; }
-  ::-webkit-scrollbar-thumb { @apply bg-slate-300 dark:bg-slate-700 rounded-full; }
+/* =========================
+   THEME VARIABLES
+========================= */
+
+/* Default: Classic Light (book page) */
+:root {
+  --paper: #f5ecd9;
+  --paper-line: rgba(0, 0, 0, 0.08);
+  --paper-grain: rgba(0, 0, 0, 0.03);
+
+  --ink: #2f2a1f;
+
+  --brand: #eab308;
+  --brand-soft: #fde047;
+
+  --accent-red: #d05757;
 }
 
+/* Dark mode (parchment, NOT gray) */
+.dark {
+  --paper: #2a241b;
+  --paper-line: rgba(255, 255, 255, 0.06);
+  --paper-grain: rgba(255, 255, 255, 0.03);
+
+  --ink: #e7dcc7;
+
+  --brand: #ca8a04;
+  --brand-soft: #facc15;
+
+  --accent-red: #ff7b7b;
+}
+
+/* Optional themes */
+.theme-sepia {
+  --paper: #efe2c7;
+  --ink: #3b3222;
+}
+
+.theme-clean {
+  --paper: #fafafa;
+  --paper-line: rgba(0,0,0,0.05);
+  --ink: #111827;
+}
+
+.theme-midnight {
+  --paper: #1e1b16;
+  --paper-line: rgba(255,255,255,0.05);
+  --ink: #f5f5dc;
+}
+
+/* =========================
+   BASE
+========================= */
+
+@layer base {
+  body {
+    @apply font-sans;
+    background-color: var(--paper);
+    color: var(--ink);
+  }
+}
+
+/* =========================
+   COMPONENTS
+========================= */
+
 @layer components {
-  .note-section {
-    @apply relative rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/60 p-4 transition-all duration-150;
+
+  /* Notebook container */
+  .notebook {
+    @apply rounded-xl p-6 shadow-paper relative;
+    background-color: var(--paper);
+
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 28px,
+        var(--paper-line) 29px
+      );
   }
-  .note-section:hover {
-    @apply border-slate-300 dark:border-slate-600;
+
+  /* Red margin line */
+  .notebook::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--accent-red);
+    opacity: 0.6;
   }
-  .section-drag-handle {
-    @apply opacity-0 group-hover:opacity-100 transition-opacity cursor-grab active:cursor-grabbing;
+
+  /* Paper grain texture */
+  .notebook::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--paper-grain) 1px, transparent 1px);
+    background-size: 4px 4px;
+    pointer-events: none;
   }
-  .highlight-yellow { @apply bg-yellow-200 dark:bg-yellow-800/50 rounded px-0.5; }
-  .highlight-green  { @apply bg-green-200 dark:bg-green-800/50 rounded px-0.5; }
-  .highlight-blue   { @apply bg-blue-200 dark:bg-blue-800/50 rounded px-0.5; }
-  .highlight-pink   { @apply bg-pink-200 dark:bg-pink-800/50 rounded px-0.5; }
+
+  /* Text */
+  .note-text {
+    @apply pl-12 leading-7 text-lg;
+  }
+
+  /* Input field */
+  .input-paper {
+    @apply bg-transparent border-b outline-none px-2 py-1;
+    border-color: var(--paper-line);
+    color: var(--ink);
+  }
+
+  .input-paper::placeholder {
+    opacity: 0.6;
+  }
+
+  /* Brand button */
+  .btn-brand {
+    @apply px-4 py-2 rounded-md shadow;
+    background-color: var(--brand);
+    color: var(--ink);
+  }
+
+  .btn-brand:hover {
+    background-color: var(--brand-soft);
+  }
+
+  /* Paper card */
+  .paper-card {
+    @apply rounded-lg shadow-paper p-4;
+    background-color: var(--paper);
+  }
+
+  /* Borders utility (optional helper) */
+  .border-paper {
+    border-color: var(--paper-line);
+  }
 }
