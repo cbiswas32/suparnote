@@ -129,7 +129,9 @@ export function ArrangementDialog({ isOpen, onClose, blocks, onApply }) {
           <Button variant="secondary" onClick={onClose}>
             Cancel
           </Button>
-          <Button onClick={handleApply}>Apply Order</Button>
+          <Button variant="outline" onClick={handleApply}>
+            Apply Order
+          </Button>
         </div>
       </div>
     </Modal>

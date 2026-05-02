@@ -238,6 +238,19 @@ export function NotesList() {
               Cancel
             </Button>
             <Button
+              className="
+              px-4 py-2 rounded-md
+              border
+              transition-all duration-150
+              bg-[var(--paper-2)]
+              text-[var(--ink)]
+              border-[var(--paper-line)]
+              hover:bg-[var(--brand-bg)]
+              hover:text-[var(--brand)]
+              active:scale-[0.98]
+              disabled:opacity-50
+              disabled:cursor-not-allowed
+            "
               onClick={handleCreate}
               loading={creating}
               disabled={!newTitle.trim()}

@@ -32,7 +32,7 @@ export function NoteBlock({ block, onChange, onDelete }) {
       <div
         {...attributes}
         {...listeners}
-        className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1 rounded cursor-grab active:cursor-grabbing transition-colors"
+        className="absolute -right-6 top-1/2 -translate-y-1/2 p-1 rounded cursor-grab active:cursor-grabbing transition-colors"
         style={{ color: "var(--ink-faint)" }}
         onMouseEnter={(e) => (e.currentTarget.style.color = "var(--ink-muted)")}
         onMouseLeave={(e) => (e.currentTarget.style.color = "var(--ink-faint)")}
