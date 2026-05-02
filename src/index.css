@@ -1,148 +1,265 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* =========================
-   THEME VARIABLES
-========================= */
+/* ================================
+   THEME VARIABLES (ACCESSIBLE)
+================================ */
 
-/* Default: Classic Light (book page) */
-:root {
+:root,
+.theme-vintage {
   --paper: #f5ecd9;
-  --paper-line: rgba(0, 0, 0, 0.08);
-  --paper-grain: rgba(0, 0, 0, 0.03);
+  --paper-2: #efe4cc;
+  --paper-line: rgba(120, 90, 40, 0.28);
+  --paper-grain: rgba(120, 80, 20, 0.05);
 
-  --ink: #2f2a1f;
+  --ink: #1f1a12;
+  --ink-muted: #4e432f;
+  --ink-faint: #7a6a4f;
 
-  --brand: #eab308;
-  --brand-soft: #fde047;
+  --brand: #b7790a;
+  --brand-soft: #d9961a;
+  --brand-bg: rgba(183, 121, 10, 0.16);
 
-  --accent-red: #d05757;
+  --accent: #9f2f2f;
+  --accent-soft: rgba(159, 47, 47, 0.18);
+  --margin: rgba(159, 47, 47, 0.65);
+
+  --shadow: rgba(60, 40, 10, 0.2);
+  --tag-bg: rgba(120, 90, 40, 0.16);
+  --tag-border: rgba(120, 90, 40, 0.35);
 }
 
-/* Dark mode (parchment, NOT gray) */
-.dark {
-  --paper: #2a241b;
-  --paper-line: rgba(255, 255, 255, 0.06);
-  --paper-grain: rgba(255, 255, 255, 0.03);
+.dark,
+.theme-ink-night {
+  --paper: #14110f;
+  --paper-2: #1c1812;
+  --paper-line: rgba(255, 220, 150, 0.09);
+  --paper-grain: rgba(255, 200, 100, 0.03);
 
-  --ink: #e7dcc7;
+  --ink: #f2e6d2;
+  --ink-muted: #c2b59a;
+  --ink-faint: #8a7c60;
 
-  --brand: #ca8a04;
-  --brand-soft: #facc15;
+  --brand: #e0a020;
+  --brand-soft: #f2b94a;
+  --brand-bg: rgba(224, 160, 32, 0.2);
 
-  --accent-red: #ff7b7b;
+  --accent: #e57373;
+  --accent-soft: rgba(229, 115, 115, 0.2);
+  --margin: rgba(229, 115, 115, 0.6);
+
+  --shadow: rgba(0, 0, 0, 0.7);
+  --tag-bg: rgba(255, 200, 100, 0.12);
+  --tag-border: rgba(255, 200, 100, 0.25);
 }
 
-/* Optional themes */
-.theme-sepia {
-  --paper: #efe2c7;
-  --ink: #3b3222;
-}
+.theme-slate {
+  --paper: #f7f9fc;
+  --paper-2: #eef2f7;
+  --paper-line: rgba(80, 100, 140, 0.18);
+  --paper-grain: rgba(80, 100, 140, 0.04);
 
-.theme-clean {
-  --paper: #fafafa;
-  --paper-line: rgba(0,0,0,0.05);
   --ink: #111827;
+  --ink-muted: #374151;
+  --ink-faint: #6b7280;
+
+  --brand: #2563eb;
+  --brand-soft: #3b82f6;
+  --brand-bg: rgba(37, 99, 235, 0.14);
+
+  --accent: #e11d48;
+  --accent-soft: rgba(225, 29, 72, 0.15);
+  --margin: rgba(37, 99, 235, 0.5);
+
+  --shadow: rgba(30, 60, 120, 0.12);
+  --tag-bg: rgba(37, 99, 235, 0.12);
+  --tag-border: rgba(37, 99, 235, 0.28);
 }
 
-.theme-midnight {
-  --paper: #1e1b16;
-  --paper-line: rgba(255,255,255,0.05);
-  --ink: #f5f5dc;
+.theme-forest {
+  --paper: #f1f6f1;
+  --paper-2: #e7efe7;
+  --paper-line: rgba(50, 90, 50, 0.18);
+  --paper-grain: rgba(40, 80, 40, 0.04);
+
+  --ink: #102a10;
+  --ink-muted: #2f4f2f;
+  --ink-faint: #6c8c6c;
+
+  --brand: #2f855a;
+  --brand-soft: #38a169;
+  --brand-bg: rgba(47, 133, 90, 0.14);
+
+  --accent: #c05621;
+  --accent-soft: rgba(192, 86, 33, 0.16);
+  --margin: rgba(47, 133, 90, 0.55);
+
+  --shadow: rgba(20, 60, 20, 0.12);
+  --tag-bg: rgba(47, 133, 90, 0.12);
+  --tag-border: rgba(47, 133, 90, 0.28);
 }
 
-/* =========================
+.theme-noir {
+  --paper: #0c0c10;
+  --paper-2: #141418;
+  --paper-line: rgba(200, 200, 240, 0.1);
+  --paper-grain: rgba(150, 150, 200, 0.03);
+
+  --ink: #f1f5ff;
+  --ink-muted: #a1a1c2;
+  --ink-faint: #6b6b8a;
+
+  --brand: #818cf8;
+  --brand-soft: #a5b4fc;
+  --brand-bg: rgba(129, 140, 248, 0.18);
+
+  --accent: #f87171;
+  --accent-soft: rgba(248, 113, 113, 0.18);
+  --margin: rgba(129, 140, 248, 0.6);
+
+  --shadow: rgba(0, 0, 0, 0.75);
+  --tag-bg: rgba(129, 140, 248, 0.12);
+  --tag-border: rgba(129, 140, 248, 0.28);
+}
+
+/* ================================
    BASE
-========================= */
-
+================================ */
 @layer base {
   body {
     @apply font-sans;
     background-color: var(--paper);
     color: var(--ink);
+    font-size: 16.5px;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    transition: background-color 0.35s ease, color 0.35s ease;
   }
 }
 
-/* =========================
+/* ================================
    COMPONENTS
-========================= */
-
+================================ */
 @layer components {
-
-  /* Notebook container */
   .notebook {
-    @apply rounded-xl p-6 shadow-paper relative;
+    @apply rounded-xl p-6 shadow-paper relative overflow-hidden;
     background-color: var(--paper);
-
-    background-image:
-      repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 28px,
-        var(--paper-line) 29px
-      );
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 27px,
+      var(--paper-line) 28px
+    );
   }
 
-  /* Red margin line */
-  .notebook::before {
-    content: '';
-    position: absolute;
-    left: 40px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: var(--accent-red);
-    opacity: 0.6;
-  }
-
-  /* Paper grain texture */
   .notebook::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(var(--paper-grain) 1px, transparent 1px);
-    background-size: 4px 4px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: 0.06;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  .notebook-margin {
+    position: absolute;
+    left: 48px;
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background-color: var(--margin);
     pointer-events: none;
   }
 
-  /* Text */
-  .note-text {
-    @apply pl-12 leading-7 text-lg;
+  .sidebar-panel {
+    background-color: var(--paper-2);
+    border-right: 1px solid var(--paper-line);
+    transition: background-color 0.35s ease;
   }
 
-  /* Input field */
   .input-paper {
     @apply bg-transparent border-b outline-none px-2 py-1;
     border-color: var(--paper-line);
     color: var(--ink);
   }
-
+  .input-paper:focus {
+    border-color: var(--brand);
+  }
   .input-paper::placeholder {
-    opacity: 0.6;
+    color: var(--ink-faint);
   }
 
-  /* Brand button */
   .btn-brand {
-    @apply px-4 py-2 rounded-md shadow;
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-150;
     background-color: var(--brand);
-    color: var(--ink);
+    color: var(--paper);
   }
-
   .btn-brand:hover {
     background-color: var(--brand-soft);
   }
 
-  /* Paper card */
-  .paper-card {
-    @apply rounded-lg shadow-paper p-4;
-    background-color: var(--paper);
+  .btn-ghost {
+    @apply px-3 py-1.5 rounded-md transition-colors duration-150;
+    color: var(--ink-muted);
+    border: 1px solid var(--paper-line);
+  }
+  .btn-ghost:hover {
+    background-color: var(--brand-bg);
+    color: var(--brand);
   }
 
-  /* Borders utility (optional helper) */
-  .border-paper {
-    border-color: var(--paper-line);
+  .tag {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs;
+    background-color: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    color: var(--brand);
+  }
+
+  .nav-item {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm cursor-pointer transition-colors duration-150;
+    color: var(--ink-muted);
+  }
+  .nav-item:hover {
+    background-color: var(--brand-bg);
+    color: var(--brand);
+  }
+  .nav-item.active {
+    background-color: var(--brand-bg);
+    color: var(--brand);
+    font-weight: 500;
+  }
+
+  .paper-card {
+    @apply rounded-lg p-4;
+    background-color: var(--paper-2);
+    border: 1px solid var(--paper-line);
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .note-text {
+    @apply pl-12;
+    color: var(--ink-muted);
+    font-size: 17px;
+    line-height: 30px;
+  }
+
+  .text-ink {
+    color: var(--ink);
+  }
+  .text-ink-muted {
+    color: var(--ink-muted);
+  }
+  .text-ink-faint {
+    color: var(--ink-faint);
+  }
+
+  .text-highlight {
+    color: var(--brand);
+    font-weight: 500;
   }
 }

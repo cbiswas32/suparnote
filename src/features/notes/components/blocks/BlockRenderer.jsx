@@ -1,14 +1,14 @@
-import { BLOCK_TYPES } from '../../../../utils/blockTypes';
-import { HeadingBlock } from './HeadingBlock';
-import { TextBlock } from './TextBlock';
-import { ImportantBlock } from './ImportantBlock';
-import { CodeBlock } from './CodeBlock';
-import { HighlightBlock } from './HighlightBlock';
-import { QABlock } from './QABlock';
-import { TableBlock } from './TableBlock';
-import { ChecklistBlock } from './ChecklistBlock';
-import { BulletListBlock } from './BulletListBlock';
-import { DividerBlock } from './DividerBlock';
+import { BLOCK_TYPES } from "../../../../utils/blockTypes";
+import { HeadingBlock } from "./HeadingBlock";
+import { TextBlock } from "./TextBlock";
+import { ImportantBlock } from "./ImportantBlock";
+import { CodeBlock } from "./CodeBlock";
+import { HighlightBlock } from "./HighlightBlock";
+import { QABlock } from "./QABlock";
+import { TableBlock } from "./TableBlock";
+import { ChecklistBlock } from "./ChecklistBlock";
+import { BulletListBlock } from "./BulletListBlock";
+import { DividerBlock } from "./DividerBlock";
 
 export function BlockRenderer({ block, onChange }) {
   switch (block.type) {
@@ -38,6 +38,10 @@ export function BlockRenderer({ block, onChange }) {
     case BLOCK_TYPES.DIVIDER:
       return <DividerBlock />;
     default:
-      return <p className="text-sm text-slate-400">Unknown block type</p>;
+      return (
+        <p className="text-sm" style={{ color: "var(--ink-faint)" }}>
+          Unknown block type
+        </p>
+      );
   }
 }
