@@ -12,12 +12,6 @@ A feature-rich, block-based note-taking app built with **Vite + React + Tailwind
 
 ### 2. Configure Environment
 
-Copy `.env.example` to `.env` and fill in your credentials:
-
-```env
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key-here
-```
 
 ### 3. Install & Run
 
